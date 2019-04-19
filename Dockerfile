@@ -1,6 +1,7 @@
 FROM perl:5.20
+
 COPY . /data/pipsqueek/
-WORKDIR /data/pipsqueek
+
 RUN cpanm Carp \
     && cpanm DateTime::Locale \
     && cpanm IPC::System::Simple \
@@ -42,5 +43,6 @@ RUN cpanm Carp \
     && cpanm Schedule::Cron::Events \
     && cpanm WWW::WolframAlpha \
     && cpanm XML::RSS 
-CMD [ "perl", "./bin/pipsqueek.pl", "-d /data/pipsqueek/client"]
+
+ENTRYPOINT [ "perl", "/data/pipsqueek/bin/pipsqueek.pl"]
 

@@ -5,6 +5,7 @@ services:
     restart: always 
     image: fouts/pipsqueek
     container_name: pipsqueek
+    run: "--clientdir=/data/pipsqueek/client"
     volumes:
       - /data/pipsqueek/etc:/data/pipsqueek/etc
       - /data/pipsqueek/client:/data/pipsqueek/client
