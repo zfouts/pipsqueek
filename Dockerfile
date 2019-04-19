@@ -2,6 +2,8 @@ FROM perl:5.20
 COPY . /data/pipsqueek/
 WORKDIR /data/pipsqueek
 RUN cpanm Carp \
+    && cpanm DateTime::Locale \
+    && cpanm IPC::System::Simple \
     && cpanm Class::Accessor::Fast \
     && cpanm XML::LibXML::Element \
     && cpanm DateTime::Format::Mail  \
@@ -40,5 +42,5 @@ RUN cpanm Carp \
     && cpanm Schedule::Cron::Events \
     && cpanm WWW::WolframAlpha \
     && cpanm XML::RSS 
-CMD [ "perl", "./bin/pipsqueek.pl", "--clientdir /data/pipsqueek/client"]
+CMD [ "perl", "./bin/pipsqueek.pl", "-d /data/pipsqueek/client"]
 
